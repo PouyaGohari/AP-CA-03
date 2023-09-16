@@ -15,12 +15,15 @@ In order to use my repo make sure you follow this steps:
 In order to use this project:
 
 1. Make sure you run the code in Linux terminal:
+
     g++ -std=c++11 main.cpp -o main.out
 
 2. Use [Command line arguments](https://www.learncpp.com/cpp-tutorial/command-line-arguments/) for getting input and output
+
     ./main.out tests/1/1.csv outputs/1/1.txt
 
 3. Differentiate the outputs with test's outputs and your outputs:
+
     diff outputs/1/1.txt tests/1/1.txt > differences/1/diff.txt
 
 
