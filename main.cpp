@@ -16,6 +16,10 @@ const char COLON = ':';
 const int ONE_HOUR = 60;
 const int QUARTAR_HOUR = 15;
 const int HALF_HOUR = 30;
+const string LOCATION = "Location ";
+const string VISIT_FROM = "Visit from ";
+const string UNTIL = " until ";
+const string DELIM = "---";
 
 struct place_of_interest{
     string name;
@@ -243,8 +247,41 @@ vector<visited_place> place_to_visit(vector<place_of_interest>& places){
     return visited_places;
 }
 
+void print_times(vector<int> time){
+    if(0 <= time[0] && time[0] <= 9 && 0 <= time[1] && time[1] <= 9){
+        cout << "0" << time[0] << COLON << "0" << time[1];
+    }
+    else if(time[0] > 9 && 0 <= time[1] && time[1] <= 9){
+        cout << time[0] << COLON << "0" << time[1];
+    }
+    else if(0 <= time[0] && time[0] <= 9 && time[1] > 9){
+        cout << "0" << time[0] << COLON << time[1];
+    }
+    else{
+        cout << time[0] << COLON << time[1];
+    }
+}
+
+void print_visitting_places(const string file_name, const vector<visited_place> vistted_places){
+    ofstream output_file(file_name);
+    streambuf* original_buff = cout.rdbuf();
+    cout.rdbuf(output_file.rdbuf());
+    for(auto visit : vistted_places){
+        cout << LOCATION << visit.name << endl;
+        cout << VISIT_FROM;
+        print_times(visit.reach_time);
+        cout << UNTIL;
+        print_times(visit.left_time);
+        cout << endl;
+        cout << DELIM << endl; 
+    }
+    cout.rdbuf(original_buff);
+    output_file.close();
+}
+
 int main(int argc, char*argv[]){
     vector<place_of_interest> places = getting_places(reading_from_file(argv[1]));
     vector<visited_place> visiting_places = place_to_visit(places);
+    print_visitting_places(argv[2], visiting_places);
     return 0;
 }
