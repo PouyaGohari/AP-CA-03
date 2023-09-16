@@ -1,0 +1,9 @@
+Location Azadi Tower
+Visit from 09:00 until 09:40
+---
+Location National Museum
+Visit from 10:10 until 10:45
+---
+Location Golestan Palace
+Visit from 11:15 until 12:00
+---

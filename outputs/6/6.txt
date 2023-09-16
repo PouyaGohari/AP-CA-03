@@ -1,0 +1,15 @@
+Location National Museum
+Visit from 08:30 until 09:30
+---
+Location Azadi Tower
+Visit from 10:00 until 11:00
+---
+Location Tehran Bazaar
+Visit from 11:30 until 12:30
+---
+Location Touchal
+Visit from 13:00 until 14:00
+---
+Location Darband
+Visit from 14:30 until 15:30
+---
